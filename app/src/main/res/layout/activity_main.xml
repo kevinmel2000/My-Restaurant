@@ -6,16 +6,21 @@
     android:layout_height="match_parent"
     tools:context="com.omrobbie.myrestaurant.MainActivity">
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="#2fc646" />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            android:src="@drawable/sanata" />
+        <com.jackandphantom.circularimageview.CircleImage
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/daprin" />
 
         <LinearLayout
             android:layout_width="wrap_content"
