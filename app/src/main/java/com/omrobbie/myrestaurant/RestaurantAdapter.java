@@ -1,10 +1,12 @@
 package com.omrobbie.myrestaurant;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -56,9 +58,21 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
             tv_menu_price = (TextView) itemView.findViewById(R.id.tv_menu_price);
         }
 
-        public void bind(MenuData item) {
+        public void bind(final MenuData item) {
             tv_menu_name.setText(item.getName());
             tv_menu_price.setText(item.getPrice());
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(itemView.getContext(), item.getName(), Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(itemView.getContext(), DetailActivity.class);
+                    intent.putExtra("name", item.getName());
+                    intent.putExtra("price", item.getPrice());
+                    itemView.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }
